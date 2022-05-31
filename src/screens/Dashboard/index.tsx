@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Header, UserInfo, Photo, User, UserGreeting, UserName, UserWrapper, Icon } from './style';
+import { HighlightCard } from '../../components/HighlightCard';
+import { Container, Header, UserInfo, Photo, User, UserGreeting, UserName, UserWrapper, Icon, HighlightCards } from './style';
 
 export function Dashboard() {
     return (
@@ -13,9 +14,16 @@ export function Dashboard() {
                             <UserName>Emanuel</UserName>
                         </User>
                     </UserInfo>
-                    <Icon name="power"/>
+                    <Icon name="power" />
                 </UserWrapper>
             </Header>
+
+            <HighlightCards >
+                <HighlightCard />
+                <HighlightCard />
+                <HighlightCard />
+            </HighlightCards>
+
         </Container>
     )
 }
