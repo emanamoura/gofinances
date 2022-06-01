@@ -1,8 +1,49 @@
 import React from 'react';
+
 import { HighlightCard } from '../../components/HighlightCard';
-import { Container, Header, UserInfo, Photo, User, UserGreeting, UserName, UserWrapper, Icon, HighlightCards } from './style';
+import { TransactionCard, TransactionCardProps } from '../../components/TransactionCard';
+import { Container, Header, UserInfo, Photo, User, UserGreeting, UserName, UserWrapper, Icon, HighlightCards, Transactions, Title, TransactionList } from './style';
+
+export interface DataListProps extends TransactionCardProps {
+    id: string;
+}
 
 export function Dashboard() {
+    const data : DataListProps[] = [{
+        id: '1',
+        type: "positive",
+        title: "Desenvolvimento de site",
+        amount: "R$12.000,00",
+        category: {
+            name: "Vendas",
+            icon: "dollar-sign"
+        },
+        date: "13/04/2020"
+    },
+    {
+        id: '2',
+        type: "negative",
+        title: "Burguer",
+        amount: "R$59,00",
+        category: {
+            name: "Alimentação",
+            icon: "coffee"
+        },
+        date: "10/04/2020"
+    },
+    {
+        id: '3',
+        type: "negative",
+        title: "Aluguel",
+        amount: "R$1.200,00",
+        category: {
+            name: "Casa",
+            icon: "home"
+        },
+        date: "10/04/2020"
+    },
+    ]
+
     return (
         <Container>
             <Header>
@@ -19,11 +60,36 @@ export function Dashboard() {
             </Header>
 
             <HighlightCards >
-                <HighlightCard />
-                <HighlightCard />
-                <HighlightCard />
+                <HighlightCard
+                    title='Entradas'
+                    amount='R$ 17.400,00'
+                    lastTransaction='Última entrada dia 13 de Abril'
+                    type='up'
+                />
+                <HighlightCard
+                    title='Saídas'
+                    amount='R$ 1.259,00'
+                    lastTransaction='Última entrada dia 03 de Abril'
+                    type='down'
+                />
+                <HighlightCard
+                    title='Total'
+                    amount='R$ 16.141,00'
+                    lastTransaction='1 a 16 de Abril'
+                    type='total'
+                />
             </HighlightCards>
 
+            <Transactions>
+                <Title>Listagem</Title>
+                <TransactionList
+                    data={data}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => <TransactionCard data={item} />}
+
+                />
+
+            </Transactions>
         </Container>
     )
 }
