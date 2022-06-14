@@ -1,6 +1,6 @@
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import { getStatusBarHeight, getBottomSpace } from 'react-native-iphone-x-helper';
 
@@ -63,7 +63,7 @@ export const UserName = styled.Text`
     font-family: ${({ theme }) => theme.fonts.bold};
 `
 
-export const LogoutButton = styled(BorderlessButton)<LogoutButtonProps>``;
+export const LogoutButton = styled(TouchableOpacity)<LogoutButtonProps>``;
 
 export const Icon = styled(Feather)`
     color: ${({ theme }) => theme.colors.secondary};
@@ -103,3 +103,9 @@ export const TransactionList = styled(
         paddingBottom: getBottomSpace()
     }
 })``;
+
+export const LoadContainer = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+`
