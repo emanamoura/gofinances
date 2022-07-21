@@ -19,7 +19,7 @@ export const TitleWrapper = styled.View`
 export const Title = styled.Text`
     font-family: ${({ theme }) => theme.fonts.medium};
     color: ${({ theme }) => theme.colors.shape};
-    font-size: ${RFValue(30)}px;
+    font-size: ${RFValue(24)}px;
 
     text-align: center;
 
@@ -42,7 +42,7 @@ export const Footer = styled.View`
 `
 
 export const FooterWrapper = styled.View`
-    margin-bottom: ${RFPercentage(-4)}px;
+    margin-top: ${RFPercentage(-4)}px;
     padding: 0 32px;
     justify-content: space-between;
 `
